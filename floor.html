@@ -1,17 +1,18 @@
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
     <script src="OrbitControls.js"></script>
     <script>
-      
-      window.addEventListerner('load', init);
-      
-      function init(){
-        
+      // ページの読み込みを待つ
+      window.addEventListener('load', init);
+
+      function init() {
+        // サイズを指定
         const width = 960;
         const height = 540;
-        
+
+        // レンダラーを作成
         const renderer = new THREE.WebGLRenderer({
           canvas: document.querySelector('#myCanvas')
         });
@@ -91,9 +92,9 @@
           requestAnimationFrame(tick);
         }
       }
-      
-      </script>
-    </head>
+    </script>
+  </head>
+
   <body>
     <canvas id="myCanvas"></canvas>
   </body>
