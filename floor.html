@@ -49,6 +49,12 @@
 
       const axisHelper = new THREE.AxisHelper(200,50);
       scene.add(axisHelper);
+        
+        var plane = new THREE.Mesh(
+                    new THREE.PlaneGeometry(100, 100, 1, 1),
+                    new THREE.MeshLamberMaterial({color: 0x0000ff}));
+        
+        scene.add(plane);
 
         // 木0をスプライトで作成
         var textureLoader = new THREE.TextureLoader();  
