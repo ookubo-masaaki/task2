@@ -44,15 +44,16 @@
         scene.add(directionalLight2);
 
         // helper
-      const gridHelper = new THREE.GridHelper(200,50); // size, step
+      /* const gridHelper = new THREE.GridHelper(200,50); // size, step
       scene.add(gridHelper);
 
       const axisHelper = new THREE.AxisHelper(200,50);
-      scene.add(axisHelper);
+      scene.add(axisHelper); */
         
         var plane = new THREE.Mesh(
                     new THREE.PlaneGeometry(100, 100, 1, 1),
-                    new THREE.MeshLamberMaterial({color: 0x0000ff}));
+                    new THREE.MeshLamberMaterial({color: 0x0000ff})
+        );
         
         scene.add(plane);
 
