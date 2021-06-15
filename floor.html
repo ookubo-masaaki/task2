@@ -54,9 +54,9 @@
         const material = new THREE.MeshBasicMaterial( {color: 0x000fff, side: THREE.DoubleSide} );
         const plane = new THREE.Mesh( geometry, material);
         
+        plane.position.x = Math.PI / 2;
+        plane.position.y = 9;
         
-        plane.rotation.y = 9;
-        // plane.rotation.z = 15;
         
         scene.add(plane);
 
