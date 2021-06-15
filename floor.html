@@ -50,11 +50,11 @@
       const axisHelper = new THREE.AxisHelper(200,50);
       scene.add(axisHelper); */
         
-        const geometry = new THREE.PlaneGeometry(100, 100, 1, 1);
+        const geometry = new THREE.PlaneGeometry(700, 700, 1, 1);
         const material = new THREE.MeshBasicMaterial( {color: 0x000fff, side: THREE.DoubleSide} );
         const plane = new THREE.Mesh( geometry, material);
         
-        plane.rotation.x = 45;
+        plane.rotation.x = 65;
         plane.rotation.z = 15;
         
         scene.add(plane);
