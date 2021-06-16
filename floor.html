@@ -50,21 +50,19 @@
       const axisHelper = new THREE.AxisHelper(200,50);
       scene.add(axisHelper); */
         
-         var textureLoader = new THREE.TextureLoader();  
-         var texture = textureLoader.load("img/park_grass.png");
-         var mat = new THREE.MeshPhongMaterial();
-         mat.map = texture;
-        
+        var textureLoader = new THREE.TextureLoader();  
+        var texture = textureLoader.load("img/park_grass.png");
+        var mat = new THREE.MeshPhongMaterial();
+        mat.map = texture;
         var geometry = new THREE.PlaneGeometry(500, 500, 1, 1);
-        
-        var plane =  new THREE.Mesh(geometry,mat);                      
-
+        var plane =  new THREE.Mesh(
+            geometry,
+            new THREE.MeshLambertMaterial({ map:mat}));
           //シーンオブジェクトに追加
         
         plane.rotation.x = Math.PI /2;
+        scene.add(plane); 
         
-          scene.add(plane); 
-
         // 木0をスプライトで作成
         var textureLoader = new THREE.TextureLoader();  
         var texture0 = textureLoader.load("img/tree1.png");
