@@ -55,11 +55,9 @@
          var mat = new THREE.MeshPhongMaterial();
          mat.map = texture;
         
-        var plane =  new THREE.Mesh(                                      
-             new THREE.PlaneGeometry(500, 500, 1, 1),
-              new THREE.MeshLambertMaterial({ 
-                side: THREE.DoubleSide , map: mat})
-        );                      
+        var geometry = new THREE.PlaneGeometry(500, 500, 1, 1)
+        
+        var plane =  new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({map: mat}));                      
 
           //シーンオブジェクトに追加
         
