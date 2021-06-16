@@ -1,17 +1,49 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>WebGL(4)</title>
+<meta charset="utf-8">
+<title>CG演習_提出</title>
+  
+  <script>
+    function updateClock(){
+      var now = new Date();
+      var hour = now.getHours();
+      var minute = now.getMinutes();
+      var second = now.getSeconds();
+      if(hour < 10 ){
+        hour = "0" + hour;
+      }
+      if(minute < 10 ){
+        minute = "0" + hour;
+      }
+      if(second < 10){
+        second = "0" + second;
+      }
+      
+      document.getElementById('myClock').innerHTML = hour+":"+minute+":"+second;
+    }
+    
+    function start(){
+      setInterval("updateClock();", 1000);
+      updateClock();
+    }
+  </script>
+  
 </head>
-<body>
-    <h1>WebGL演習（４）</h1>
-    <h2>インタラクティブとビルボード</h2>
-    <p>
-        インタラクティブ（オービットコントロール）例：
-        <ul>
-            <li><a href="floor.html">おためし</a></li>
-        </ul>
-    </p>
+  
+<body onload="start();">
+<h1>
+  CG演習課題_3
+</h1>
+<h2>
+  レポート作品
+</h2>
+
+<p>課題の作品は<a href="floor.html">こちら</a>。</p>
+  
+ <p>千葉工大HPは<a href="https://www.it-chiba.ac.jp/">こちら</a>。</p>
+  
+  <div id="myClock" align="center" style="font:bold 30pt Times New Roman;">
+    </div>
 </body>
 </html>
