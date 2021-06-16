@@ -50,11 +50,15 @@
       const axisHelper = new THREE.AxisHelper(200,50);
       scene.add(axisHelper); */
         
-        /* var textureLoader = new THREE.TextureLoader();  
+        var textureLoader = new THREE.TextureLoader();  
         var texture = textureLoader.load("img/park_grass.png");
         var mat = new THREE.MeshPhongMaterial();
-        mat.map = texture; */
-        var plane = new THREE.PlaneGeometry(500, 500, 1, 1);
+        mat.map = texture;
+        var plane = new THREE.Mesh(
+                    new THREE.PlaneGeometry(500, 500, 1, 1),
+                    new THREE.MeshLambertMaterial({
+                    color; 0x0000ff
+                    }));
         
         //シーンオブジェクトに追加
         
