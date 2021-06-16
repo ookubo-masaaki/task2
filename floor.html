@@ -59,7 +59,7 @@
         var textureLoader = new THREE.TextureLoader();  
         var texture = textureLoader.load("img/park_grass.png");
         var mat = new THREE.MeshPhongMaterial({
-          side: THREE.BackSide,
+          side: THREE.DoubleSide,
           map: texture
                     });
         //mat.map = texture;
