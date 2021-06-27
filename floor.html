@@ -67,13 +67,6 @@
                     new THREE.PlaneGeometry(500, 500, 1, 1),
                     new THREE.MeshLambertMaterial(mat));
         
-        //球
-        var sphereGeometry = new THREE.SphereGeometry( 0.5, 32, 32 ); 
-        var sphereMaterial = new THREE. MeshStandardMaterial({color: 0x00bfff, wireframe:true});
-        var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
-        sphere1.position.set( 1.5, 0, -5 );
-        scene.add( sphere1 );
-        
         //シーンオブジェクトに追加
         
         plane.rotation.x = Math.PI /2;
