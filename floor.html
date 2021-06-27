@@ -14,11 +14,12 @@
 
         // レンダラーを作成
         const renderer = new THREE.WebGLRenderer({
-          canvas: document.querySelector('#myCanvas')
+          canvas: document.querySelector('#myCanvas'),
+          alpha: ture
         });
         renderer.setSize(width, height);
         // 背景の色を設定
-        renderer.setClearColor(0xeeeeff);
+        renderer.setClearColor(0xeeeeff,0xff4500);
 
         // シーンを作成
         const scene = new THREE.Scene();
