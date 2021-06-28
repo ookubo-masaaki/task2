@@ -19,7 +19,7 @@
         });
         renderer.setSize(width, height);
         // 背景の色を設定
-        renderer.setClearColor(0xeeeeff,0xff4500);
+        renderer.setClearColor(0xff4500);
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -73,10 +73,10 @@
         plane.rotation.x = Math.PI /2;
         scene.add(plane);
         
-        var geometry = new THREE.BoxGeometry(300, 300, 300);
+        /*var geometry = new THREE.BoxGeometry(300, 300, 300);
         var material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
         var box = new THREE.Mesh(geometry, material);
-        scene.add(box);
+        scene.add(box);*/
 
         
         // 木0をスプライトで作成
