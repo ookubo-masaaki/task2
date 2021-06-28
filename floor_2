@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script>
+      // ページの読み込みを待つ
+      window.addEventListener('load', init);
+
+      function init() {
+        // サイズを指定
+        const width = 960;
+        const height = 540;
+
+        // レンダラーを作成
+        const renderer = new THREE.WebGLRenderer({
+          canvas: document.querySelector('#myCanvas'),
+          alpha: true,
+        });
+        renderer.setSize(width, height);
+        // 背景の色を設定
+        renderer.setClearColor(0xff4500, 0.1);
+
+        // シーンを作成
+        const scene = new THREE.Scene();
+
+        // カメラを作成
+        const camera = new THREE.PerspectiveCamera(45, width / height);
+        // カメラの初期座標を設定
+        camera.position.set(0, 0, 500);
+
+        // カメラコントローラーを作成
+        const controls = new THREE.OrbitControls(camera,document.body);
+  
+        // 平行光源1
+        var directionalLight1 = new THREE.DirectionalLight(0xffffff);
+        directionalLight1.position.set(100, 100, 100);
+        directionalLight1.castShadow = true;
+        // シーンに追加
+        scene.add(directionalLight1);
+        // 平行光源2
+        var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+        directionalLight2.position.set(-100, 100, 100);
+        // シーンに追加
+        scene.add(directionalLight2);
+        
+        var directionalLight3 = new THREE.DirectionalLight(0xffffff);
+        directionalLight3.position.set(100, -100, 100);
+        //directionalLight3.castShadow = true;
+        // シーンに追加
+        scene.add(directionalLight3);
+        
+        var directionalLight4 = new THREE.DirectionalLight(0xffffff);
+        directionalLight4.position.set(150, 300, -500);
+        directionalLight3.castShadow = true;
+        scene.add(directionalLight4);
+
+        // helper
+      /* const gridHelper = new THREE.GridHelper(200,50); // size, step
+      scene.add(gridHelper);
+      const axisHelper = new THREE.AxisHelper(200,50);
+      scene.add(axisHelper); */
+        
+        var textureLoader = new THREE.TextureLoader();  
+        var texture = textureLoader.load("img/park_grass.png");
+        var mat = new THREE.MeshPhongMaterial({
+          side: THREE.DoubleSide,
+          map: texture
+                    });
+        //mat.map = texture;
+        var plane = new THREE.Mesh(
+                    new THREE.PlaneGeometry(500, 500, 1, 1),
+                    new THREE.MeshLambertMaterial(mat));
+        
+        //シーンオブジェクトに追加
+        
+        plane.rotation.x = Math.PI /2;
+        scene.add(plane);
+        
+        var sphereGeometry = new THREE.SphereGeometry( 25,20,20 ); 
+        var sphereMaterial = new THREE.MeshLambertMaterial({color: 0xff4500});
+        var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+        sphere1.position.x = 150;
+        sphere1.position.y = 300;
+        sphere1.position.z = -300;
+        scene.add( sphere1 );
+
+        
+        // 木0をスプライトで作成
+        var textureLoader = new THREE.TextureLoader();  
+        var texture0 = textureLoader.load("img/tree1.png");
+        const material0 = new THREE.SpriteMaterial({ map: texture0,});
+
+        const sprite0 = new THREE.Sprite(material0);
+        sprite0.position.x = 0;
+        sprite0.position.y = 70;
+        sprite0.position.z = 0;
+        sprite0.scale.set(250,250,250);
+        scene.add(sprite0);
+
+        // 木1をスプライトで作成 
+        var texture1 = textureLoader.load("img/tree1.png");
+        const material1 = new THREE.SpriteMaterial({ map: texture1,});
+
+        const sprite1 = new THREE.Sprite(material1);
+        sprite1.position.x = 100;
+        sprite1.position.y = 70;
+        sprite1.position.z = -100;
+        sprite1.scale.set(250,250,250);
+        scene.add(sprite1);
+
+        // 木1をスプライトで作成 
+        var texture2 = textureLoader.load("img/tree2.png");
+        const material2 = new THREE.SpriteMaterial({ map: texture2,});
+
+        const sprite2 = new THREE.Sprite(material2);
+        sprite2.position.x = -100;
+        sprite2.position.y = 95;
+        sprite2.position.z = -100;
+        sprite2.scale.set(250,250,250);
+        scene.add(sprite2);
+        
+        //ひと
+        var texture3 = textureLoader.load("img/147185.png");
+        const material3 = new THREE.SpriteMaterial({ map: texture3,});
+
+        const sprite3 = new THREE.Sprite(material3);
+        sprite3.position.x = -7;
+        sprite3.position.y = 16;
+        sprite3.position.z = 26;
+        sprite3.scale.set(38,38,38);
+        scene.add(sprite3);
+
+        tick();
+        // 毎フレーム時に実行されるループイベントです
+        function tick() {
+          // レンダリング
+          
+          renderer.render(scene, camera);
+          requestAnimationFrame(tick);
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <canvas id="myCanvas"></canvas>
+  </body>
+</html>
