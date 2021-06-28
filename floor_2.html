@@ -71,13 +71,12 @@
         var texture = textureLoader.load("img/park_grass.png");
         var mat = new THREE.MeshPhongMaterial({
           side: THREE.DoubleSide,
-          color: 0x006400
-          // map: texture
+          map: texture
                     });
         //mat.map = texture;
         var plane = new THREE.Mesh(
                     new THREE.PlaneGeometry(500, 500, 1, 1),
-                    new THREE.MeshStanderdMaterial(mat));
+                    new THREE.MeshLambertMaterial(mat));
         
         //シーンオブジェクトに追加
         
