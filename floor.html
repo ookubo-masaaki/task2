@@ -73,10 +73,11 @@
         plane.rotation.x = Math.PI /2;
         scene.add(plane);
         
-        /*var geometry = new THREE.BoxGeometry(300, 300, 300);
-        var material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
-        var box = new THREE.Mesh(geometry, material);
-        scene.add(box);*/
+        var sphereGeometry = new THREE.SphereGeometry( 0.5, 32, 32 ); 
+        var sphereMaterial = new THREE. MeshStandardMaterial({color: 0xff4500});
+        var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+        sphere1.position.set( 2.0, 2.5, -5 );
+        scene.add( sphere1 );
 
         
         // 木0をスプライトで作成
